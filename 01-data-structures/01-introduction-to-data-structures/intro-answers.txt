@@ -1,0 +1,21 @@
+Line: 
+
+Used the initialize method, an array, and linear ordered argument.
+
+1. Appending a new member to the array. Each element is      iterated through to find a match for a particular        member. Removing a member and setting it to empty        or nil causes the line to be shorter. 
+
+2. Like before to search for an certain member you have      to iterate over each element there is a match. 
+
+3. A group of letters, or undo or redo words when typing    a paper
+
+
+Pixel: 
+
+Used an array within an array to make it 2D. (matrix)
+
+1. Using x and y adding and removing a pixel refers to      the position directly with in the array. Removing a      pixel is more oa a reset of the position with nil.
+
+2. Searching for a pixel using the x and y by accessing      the element indices within the 2D array. 
+
+3. moves in a chess game or a social network feed where      things are added/removed randomly and specifically        searched.
+
