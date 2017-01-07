@@ -7,11 +7,22 @@ class MyStack
   end
 
   def push(item)
+    @stack.unshift(item)
+    refresh
   end
 
   def pop
+    result = @stack.shift
+    refresh
+    result
   end
 
   def empty?
+    @stack.length < 1
   end
+
+  def refresh
+    self.top = @stack[0]
+  end
+  private :refresh 
 end
