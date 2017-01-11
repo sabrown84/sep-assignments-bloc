@@ -1,0 +1,2 @@
+1. Spatial locality is when you reference elements in close to the same time frame and in space. This benefits performance because its faster to add or remove an element, but it takes longer to search for a particular element. 
+When using the benchmark module as stated above an array would be on a faster scale than a linked list because of the strutural differences of the two. Arrays could become more fragmented and slower but excel in search factors. On the other hand, linked lists are faster when inserting and deleting elements. 
