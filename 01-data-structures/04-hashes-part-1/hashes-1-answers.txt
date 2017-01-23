@@ -1,0 +1,1 @@
+Doubling the size of the array creates a slow process and changes the order of the original array. 
