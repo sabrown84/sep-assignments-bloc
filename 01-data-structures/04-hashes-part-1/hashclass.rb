@@ -13,7 +13,6 @@ class HashClass
       self[key] = value
     elsif @items[itemsIndex].key === key && @items[itemsIndex].value != value
       self.resize
-      @items[itemsIndex].value = value
     end
   end
 
