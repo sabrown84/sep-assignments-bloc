@@ -2,12 +2,13 @@ require_relative 'node'
 
 class OpenAddressing
   def initialize(size)
+    @size = size
     @items = Array.new(size)
     @items_increase = 0
   end
 
   def []=(key, value)
-    given_index = index(key, @items.length)
+    given_index = index(key, @size)
     new_hash_item = next_open_index(given_index)
     #if new_hash_item.nil?
     #while @items[given_index].value != value
@@ -21,55 +22,22 @@ class OpenAddressing
           #self[key] = value
           return
         else
-          @items[new_hash_item] = Node.new(key, value)
+          new_index = next_open_index(index(key, @size))
+          @items[new_hash_item] = value
         end
       end
-    #end
-        #new_index = index(key, @items.length)
-        #break if @items[new_index] == nil
-    #elsif new_hash_item.key == key && new_hash_item.value != value
-    #else new_index = self.next_open_index(given_index)
-      #  if new_index == -1
-        #  self.resize
-        #  self[key] = value
-        #  @items_increase += 1
-      #  elsif @items[new_index].nil?
-        #  @items[new_index] = Node.new(key, value)
-        #  @items_increase += 1
-      #  elsif @items[new_index].key == key && @items[new_index].value != value
-      #    @items[new_index].value = value
-      #else
-      #  next_index = next_open_index(index(key, @items.length))
-      #  @items[next_index] = value
-      #end
-    #end
+
 
   def [](key)
-    item = index(key, @items.length)
+    item = @items[index(key, @size)]
     @items_increase = 0
-    #until item == @items.length
-      if @items[item].nil?
+    until item == @size
+      if item.nil?
         return nil
-      elsif @items[item].key == key
+      elsif @items[item].key === key
         return @items[item].value
       else
-        if item == @items.length - 1
-          @items_increase = 0
-        else
-          @items_increase = item + 1
-        end
-        while @items_increase != item
-          if @items[@items_increase] == nil
-            return nil
-          elsif @items[@items_increase].key == key
-            return @items[@items_increase].value
-          else
-            if @items_increase == @items.length - 1
-              @items_increase = 0
-            else
-              @items_increase += 1
-            end
-          end
+        item += 1
         end
       end
     end
@@ -84,12 +52,14 @@ class OpenAddressing
 
   # Given an index, find the next open index in @items
   def next_open_index(index)
-    #given_index = index
-    until index == @items.length
+    given_index = index
+    while index <= (@size - 1)
       if @items[index].nil?
         return index
-      #elsif @items[index] != nil && @items[index] == (@items.length - 1)
-      #  index = 0
+      elsif @items[index] != nil && index == (given_index - 1)
+        return -1
+      elsif @items[index] != nil && @items[index] == (@size -1)
+        index = 0
       else
         index += 1
       end
@@ -99,15 +69,15 @@ class OpenAddressing
 
   # Simple method to return the number of items in the hash
   def size
-    @items.length
+    @size
   end
 
   # Resize the hash
   def resize
     smallArray = @items
-    theSize = smallArray.length
     new_items = []
-    smallArray = Array.new(theSize * 2)
+    @size = @size * 2
+    smallArray = Array.new(@size)
     smallArray.each do |num|
       unless num.nil?
         new_items << item
