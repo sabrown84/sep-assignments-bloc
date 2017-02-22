@@ -10,15 +10,18 @@ class SeparateChaining
   end
 
   def []=(key, value)
-    i = index(key, @items.size)
+    index = index(key, @items.size)
     n = Node.new(key, value)
 
     # COLLISION!
-    @items[i] != nil ? list = @items[i] : list = LinkedList.new
-
-    list.add_to_tail(n)
-    @items[i] = list
-    @item_count = @item_count + 1
+    if @items[index] != nil
+      list = @items[index]
+    else
+      list = LinkedList.new
+    end
+      list.add_to_tail(n)
+      @items[index] = list
+      @item_count = @item_count + 1
 
     # Resize the hash if the load factor grows too large
     if load_factor.to_f > max_load_factor.to_f
@@ -29,12 +32,12 @@ class SeparateChaining
   def [](key)
     list = @items.at(index(key, @items.size))
     if list != nil
-      curr = list.head
-      while curr != nil
-        if curr.key == key
-          return curr.value
+      current = list.head
+      while current != nil
+        if current.key == key
+          return current.value
         end
-        curr = curr.next
+        current = current.next
       end
     end
   end
@@ -43,17 +46,7 @@ class SeparateChaining
   # We are hashing based on strings, let's use the ascii value of each string as
   # a starting point.
   def index(key, size)
-    sum = 0
-
-    key.split("").each do |char|
-      if char.ord == 0
-        next
-      end
-
-      sum = sum + char.ord
-    end
-
-    sum % size
+    key.sum % size
   end
 
   # Calculate the current load factor
@@ -68,23 +61,29 @@ class SeparateChaining
 
   # Resize the hash
   def resize
-    new_size = size*2
+    new_size = size * 2
     new_items = Array.new(new_size)
     (0..@items.size-1).each do |i|
       list = @items[i]
       if list != nil
-        curr = list.head
+        current = list.head
         # We only need to compute the new index once
-        new_index = index(curr.key, new_items.size)
-        while curr != nil
+        new_index = index(current.key, new_items.size)
+        while current != nil
           list = LinkedList.new
-          list.add_to_tail(curr)
+          list.add_to_tail(current)
           new_items[new_index] = list
-          curr = curr.next
+          current = current.next
         end
       end
     end
-
     @items = new_items
   end
+
+def print
+  hasg_load_factor = @item_count / self.size.to_f
+  puts "Hash load factor is #{hash_load_factor}"
+  @items.inspect
+end
+
 end

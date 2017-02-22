@@ -1,0 +1,3 @@
+1. Hopscotch Hashing - another type of open addressing. It seems that an item is trying to be inserted into an open spot, but the spot is moved to the appropriate position and then the insertion of the new item is placed. So essentially the open spot is the mover instead of searching through the whole list.
+2. RobinHood Hashing - a double-hashing variation that is said to be more efficient because it will move items that are already stored while inserting new items. All at the same time. 
+3. 2- Choice Hashing - there are two separate hash functions and which ever has the least amount of items will receive the new items that need to be placed. Therefore you wouldn't need to resize either until they are both full.
