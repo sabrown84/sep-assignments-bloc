@@ -155,6 +155,7 @@ RSpec.describe BinarySearchTree, type: Class do
        tree.insert(root, shawshank)
        tree.insert(root, district)
        tree.insert(root, mad_max_2)
+       tree.printf
        expect { tree.printf }.to output(expected_output).to_stdout
      }
 
