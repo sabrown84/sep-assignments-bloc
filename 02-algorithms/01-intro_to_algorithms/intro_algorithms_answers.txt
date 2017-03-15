@@ -1,0 +1,22 @@
+1. a) Take the dog for a walk
+      -Get dogs attention
+      -Get leash
+      -Add leash to dog
+      -Walk dog
+      -Return home
+      -Remove leash from dog
+      end
+
+    b) Drinking 8 glasses of water
+       -Get glass
+       -Fill with water
+       -Drink
+       -Repeat until 8 glasses are complete
+       End
+
+    c) Eat a banana
+       -Get banana
+       -Peel banana
+       -Eat banana
+       -Throw away peel
+       End
