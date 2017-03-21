@@ -1,0 +1,17 @@
+1. It would take seven iterations using linear search because G is in the seventh space.
+2. It would take two iterations using binary search.
+3.
+  fib(10) = (fib(10-1)) + (fib(10-2))
+          = (fib(9)) + (fib(8))
+          = 34 + 21 => 55
+
+  fib(11) = (fib(11-1)) + (fib(11-2))
+          = (fib(10)) + (fib(9))
+          = 55 + 34 => 89
+
+  fib(12) = (fib(12-1)) + (fib(12-2))
+          = (fib(11)) + (fib(10))
+          = 89 + 55 => 144
+
+4. I would use linear search because they are unsorted items and a recursive solution because it would work through it faster by calling itself.
+5. I would use binary search because they are sorted items and a recursive again because it would loop through by calling itself.  
