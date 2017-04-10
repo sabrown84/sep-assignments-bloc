@@ -1,0 +1,6 @@
+1. O(1) because it is a constant complexity which means it always takes the same amount of time to execute regardless of the size of the array.
+2. O(n) because it is a linear time complexity which means as the array grows in size the number of operations it executes also grows at the same rate.
+3. O(n) same as before because it does takes an extra step with having a sub-collection of collections but in the end it will still come out linear complexity.
+4. O(n) in another instance this is also a linear time complexity because if you look at the conditional statements they tell us that as one goes up the other follows at the same rate each time it iterates.
+5. O(log n) because in the binary iterative as the size of n doubles the number of iterations only increases by 1.
+6. O(n log n) because similar to merge sort...quick sort it has to pivot through each item to sort it then place them weather they are before or after the pivot point it will take a little while.
