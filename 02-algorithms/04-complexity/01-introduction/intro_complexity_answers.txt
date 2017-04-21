@@ -1,13 +1,13 @@
 1. An example of O(1) would be something that would take constant time depending on the set of data. Its the worst case so...If I'm looking for a DVD in my book case it holds 5 on the first shelf...it would take 5 actions to find the one I want. On the other hand, O(2^n) would take even longer because if you have 2 books and the exponent is 10 then it would take 10 times longer to complete the algorithm.
 2. Best case scenario for binary search is O(log n) because it cuts the problem in half each time. But you would have to find the item on the first try for the best case.
-3. Worst case would be if the binary search pivot point is at the end of the array and you would have to go through each one to find the item.
+3. Worst case would be if the binary search 0(log n) as well because it can go on an infinite number of times.
 4. The bounded-case for binary search is big Theta so its between the best and the worst case...so it's not slower than the worst case but still linear.
 5.https://docs.google.com/spreadsheets/d/19XvTIFYv-ITX9zR1SLsiABUDTCmAOYWhM7W6GwQF1sQ/edit?usp=sharing
 6. Infinity...never ending
 7. O(2^n) because the values are increasing exponentially.
   def search(array)
       for number in 1..n do
-        puts "( " + number.to_s + ", " + number.to_s + " )"
+        puts "( " + num.to_s + ", " + num.to_s + " )"
       end
     end
 
