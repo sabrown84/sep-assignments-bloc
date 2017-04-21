@@ -1,0 +1,4 @@
+Poorly written O(2^n)
+Version 1: O(n)
+Version 2: O(log n)
+Version 3: O(log n)
